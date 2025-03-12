@@ -42,7 +42,7 @@ const BarnnerCards = ({ headline, books }) => {
                 </div>
                 <div className="text-center mt-2">
                   <h3 className="text-xl font-semibold">{book.title}</h3>
-                  <p>{book.authName}</p>
+                  <p>{book.authorName}</p>
                   <div>
                     <p>$10.00</p>
                   </div>

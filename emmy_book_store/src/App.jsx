@@ -2,11 +2,17 @@
 import { Outlet } from 'react-router'
 import './App.css'
 import Navbar from './components/Navbar'
+import MyFooter from './components/MyFooter'
+
 function App() {
   return (
     <>
  <Navbar/>
-   <Outlet/>
+<div className='min-h-screen'>
+<Outlet/>
+
+</div>
+<MyFooter/>
     </>
   )
 }

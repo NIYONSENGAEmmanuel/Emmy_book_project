@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 const BarnnerCards = ({ headline, books }) => {
-  console.log(books); // Debugging
+  // console.log(books); // Debugging
 
   return (
     <div className="my-16 px-4 lg:px-24">

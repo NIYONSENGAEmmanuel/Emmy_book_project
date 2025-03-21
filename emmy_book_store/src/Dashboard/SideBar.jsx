@@ -24,7 +24,12 @@ const SideBar = () => {
         <Sidebar aria-label="Sidebar with contect separator example">
           {/* Profile Section with Image and Text in One Line */}
           <div className="flex items-center pl-4 py-3 space-x-2">
-            <img src={user?.photoURL} imgAlt="Flowbite Logo" className="w-8 h-8 rounded-full" />
+          <img
+  src={user?.photoURL
+}
+  alt="Flowbite Logo" // Changed from imgAlt to alt
+  className="w-8 h-8 rounded-full"
+/>
             <p className="text-sm font-medium">
               {
                 user?.displayName || "Demo user"

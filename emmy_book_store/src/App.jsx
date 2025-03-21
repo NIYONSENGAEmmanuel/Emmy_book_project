@@ -1,20 +1,20 @@
-
-import { Outlet } from 'react-router'
-import './App.css'
-import Navbar from './components/Navbar'
-import MyFooter from './components/MyFooter'
+import { Outlet, useLocation } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import MyFooter from "./components/MyFooter";
 
 function App() {
-  return (
-    <>
- <Navbar/>
-<div className='min-h-screen'>
-<Outlet/>
+  const location = useLocation();
 
-</div>
-<MyFooter/>
-    </>
-  )
+  // Reba niba turi kuri login cyangwa signup page
+  const hideNavFooter = location.pathname === "/login" || location.pathname === "/sign-up";
+
+  return (
+    <div>
+      {!hideNavFooter && <Navbar />}
+      <Outlet />
+      {!hideNavFooter && <MyFooter />}
+    </div>
+  );
 }
 
-export default App
+export default App;

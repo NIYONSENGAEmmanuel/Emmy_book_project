@@ -56,6 +56,7 @@ const router = createBrowserRouter([
       },
       { path: "/admin/dashboard/upload", element: <UploadBook /> },
       { path: "/admin/dashboard/manage", element: <ManageBook /> },
+    
       {
         path: "edit-book/:id", // HINDURA HANO kugira ngo ihure na ManageBooks.js
         element: <EditBooks />,

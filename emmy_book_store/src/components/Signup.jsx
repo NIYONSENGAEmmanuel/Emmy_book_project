@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contects/AuthProvider';
-import googleLogo from '../assets/google-logo.svg'
+import googleLogo from '../assets/google-logo.svg';
+
 const Signup = () => {
-  const { createUser,loginwithGoogle } = useContext(AuthContext);
+  const { createUser, loginwithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Signup = () => {
     const password = form.password.value;
 
     createUser(email, password)
-      .then((userCredential) => {
+      .then(() => {
         alert("Sign up successfully!");
         navigate(from, { replace: true });
       })
@@ -25,17 +26,18 @@ const Signup = () => {
         setError(error.message);
       });
   };
-//sung up using Goole account
 
-const handleRegister = () =>{
-  loginwithGoogle().then((result) =>{
-    const user = result.user;
-    alert("Sign up successfully!");
-    navigate(from, { replace: true });
-  }).catch((error) => {
-    setError(error.message);
-  });
-}
+  const handleRegister = () => {
+    loginwithGoogle()
+      .then(() => {
+        alert("Sign up successfully!");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
       <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -51,7 +53,7 @@ const handleRegister = () =>{
                 <div className="relative">
                   <input id="password" name="password" type="password" className="peer h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600" placeholder="Password" />
                 </div>
-                <p>If you haven't an account, please <Link className="text-blue-600 underline" to="/sign-up">sign up</Link> Here</p>
+                <p>Already have an account? <Link className="text-blue-600 underline" to="/login">Log in</Link></p>
                 <div className="relative">
                   <button className="bg-blue-500 text-white rounded-md px-6 py-2">Sign up</button>
                 </div>
@@ -60,7 +62,7 @@ const handleRegister = () =>{
             </div>
             <hr/>
             <div className='flex w-full items-center flex-col mt-5 gap-3'>
-              <button onClick={handleRegister} className='block'> <img src={googleLogo} alt="" className='w-12 h-12 inline-block' /> Login with Google</button>
+              <button onClick={handleRegister} className='block'> <img src={googleLogo} alt="Google Logo" className='w-12 h-12 inline-block' /> Login with Google</button>
             </div>
           </div>
         </div>
